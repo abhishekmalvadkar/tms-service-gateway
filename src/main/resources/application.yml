@@ -5,7 +5,8 @@ spring:
     gateway:
       routes:
         - id: tms-service-configuration-route
-          uri: lb://tms-service-configuration
+#          uri: lb://tms-service-configuration
+          uri: https://dev-tms-service-configuration.up.railway.app
           predicates:
             - Path=/api/configuration/**
 
