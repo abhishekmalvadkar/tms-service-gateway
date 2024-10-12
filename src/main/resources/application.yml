@@ -1,8 +1,4 @@
 spring:
-  boot:
-    admin:
-      client:
-        url: ${TMS_SERVER_ADMIN_URL:http://localhost:9093}
   application:
     name: tms-service-gateway
   cloud:
