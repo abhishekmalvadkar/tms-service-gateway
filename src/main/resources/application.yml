@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: tms-service-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: tms-service-configuration-route
+          uri: lb://tms-service-configuration
+          predicates:
+            - Path=/api/configuration/**
+
+server:
+  port: 9092
+
+tms:
+  cors:
+    allowedOrigins:
+      - https://dev-tms.com
+      - https://dev2-tms.com
+      - https://qa-tms.com
+      - https://qa2-tms.com
+      - https://staging-tms.com
+      - https://sandbox-tms.com
+      - https://demo-tms.com
+      - https://training-tms.com
+      - https://tms.com
+      - http://localhost:4200
+      - http://127.0.0.1:4200
+    allowedMethods:
+      - '*'
+    allowedHeaders:
+      - '*'
+    maxAge: 43200
+    exposedHeaders:
+      - '*'
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
