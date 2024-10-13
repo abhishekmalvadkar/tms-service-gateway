@@ -15,7 +15,7 @@ server:
 tms:
   cors:
     allowedOrigins:
-      - https://dev-tms.com
+      - https://dev-tms-amalvadkar.netlify.app
       - https://dev2-tms.com
       - https://qa-tms.com
       - https://qa2-tms.com
